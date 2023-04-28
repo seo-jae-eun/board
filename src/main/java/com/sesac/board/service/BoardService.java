@@ -17,48 +17,31 @@ import java.util.UUID;
 public class BoardService {
 
     @Autowired
-    private BoardRepository boardRepository;
+    BoardRepository boardRepository;
 
-    // 글 작성 처리
-    public void write(Board board, MultipartFile file) throws Exception {
-
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
-
-        String fileName = uuid + "_" + file.getOriginalFilename();
-
-        File saveFile = new File(projectPath, fileName);
-
-        file.transferTo(saveFile);
-
-        board.setFilename(fileName);
-        board.setFilepath("/files/" + fileName);
-
-        boardRepository.save(board);
-
+    /* 전체 Row Select */
+    public List<Board> doSelectAll() {
+        return boardRepository.findAll();
     }
 
-    // 게시글 리스트 처리
-    public Page<Board> boardList(Pageable pageable) {
-
-        return boardRepository.findAll(pageable);
-    }
-
-    public Page<Board> boardSearchList(String searchKeyword, Pageable pageable) {
-
-        return boardRepository.findByTitleContaining(searchKeyword, pageable);
-    }
-
-    // 특정 게시글 불러오기
-    public Board boardView(Integer id) {
-
+    /* One row Select */
+    public Board doSelectOne(int id) {
         return boardRepository.findById(id).get();
     }
 
-    // 특정 게시글 삭제
-    public void boardDelete(Integer id) {
+    /* Insert */
+    public void doInsert(Board board) {
+        boardRepository.save(board);
+    }
 
+    /* Update */
+    public void doUpdate(Board board) {
+        boardRepository.save(board);
+    }
+
+    /* Delete */
+    public void doDelete(int id) {
         boardRepository.deleteById(id);
     }
+
 }
