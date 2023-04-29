@@ -42,8 +42,8 @@ class BoardServiceTest {
     }
 
     @Test
-    //@Transactional
+    @Transactional
     void doDelete() {
-        boardService.doDelete(3);
+        boardService.doDelete(4);
     }
 }
