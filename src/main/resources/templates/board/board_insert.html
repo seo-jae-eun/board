@@ -9,48 +9,24 @@
 
   <title>Home!</title>
 </head>
-<body>
+<body class="text-center">
 
 <!-- 헤더 위치 -->
 <div th:include ="~{/comm/header}"></div>
 
 
 <main>
-  <div class="container">
-    <button type="button" onclick="location.href='/board/insert'">등록하기</button>
-    <div class="row mb-2">
-      <div class="col">ID</div>
-      <div class="col">제목</div>
-      <div class="col">내용</div>
-      <div class="col">등록일자</div>
-      <div class="col">수정</div>
-      <div class="col">삭제</div>
-    </div>
+  <form name="frm_study_mod" action="/board/insert_exe" method="post">
+    <div>ID : 자동입력</div><br>
+    <div>Title : <input type="text" name="title" value=""></div><br>
+    <div>Content : <input type="text" name="content" value="" size="70"></div></p>
 
-    <!-- 데이터 출력 부분 -->
-    <th:block th:each="board : ${list}">
-      <div class="row mb-2">
-        <div class="col" th:text="${board.getId()}">Key_Id(Vo)</div>
-        <div class="col" th:text="${board.getTitle()}">제목</div>
-        <div class="col" th:text="${board.getContent()}">내용</div>
-        <div class="col" th:text="${board.getDay()}">등록일자</div>
-        <div class="col"><a th:href="@{/board/modify(id=${board.getId()})}">수정</a></div>
-        <div class="col"><a th:href="@{/board/delete(id=${board.getId()})}">삭제</a></div>
-      </div>
-    </th:block>
-
-
-
-
-
-
-  </div>
-
+    <input type="submit" value="등록하기">
+  </form>
 </main>
 
 <!-- 푸터 위치 -->
 <div th:include="~{/comm/footer}"></div>
-
 
 
 <!-- Optional JavaScript; choose one of the two! -->
