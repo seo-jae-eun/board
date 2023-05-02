@@ -44,7 +44,7 @@ public class BoardController {
     @PostMapping("/insert_exe")
     public String doInsertExe(@ModelAttribute Board board) {
 
-        board.setDay(LocalDateTime.now());
+        //board.setDay(LocalDateTime.now()); // WAS 시간
         boardService.doInsert(board);
 
         return "redirect:/board/list";

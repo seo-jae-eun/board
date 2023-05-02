@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenerationTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,7 +21,12 @@ public class Board {
     private Integer id;
     private String title;
     private String content;
+    @org.hibernate.annotations.Generated(GenerationTime.ALWAYS)
+    @Column(name = "day", updatable = false)
     private LocalDateTime day;
+    @org.hibernate.annotations.Generated(GenerationTime.ALWAYS)
+    @Column(name = "modify_day")
+    private LocalDateTime modify_day;
     private String filename;
     private String filepath;
 }
