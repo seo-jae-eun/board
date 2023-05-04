@@ -26,7 +26,7 @@ public class Board {
     private LocalDateTime day;
     @org.hibernate.annotations.Generated(GenerationTime.ALWAYS)
     @Column(name = "modify_day")
-    private LocalDateTime modify_day;
+    private LocalDateTime modifyDay;
     private String filename;
     private String filepath;
 }
