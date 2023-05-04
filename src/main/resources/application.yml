@@ -26,6 +26,10 @@ spring:
         show_sql : true
         format_sql: true
 
+--- # Encrypt
+encrypt:
+  key16: ABCdefg123456plm
+
 #spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 #spring.datasource.username=root
 #spring.datasource.password=123456

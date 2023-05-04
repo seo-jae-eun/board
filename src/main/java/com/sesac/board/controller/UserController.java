@@ -34,7 +34,7 @@ public class UserController {
 
     // 회원가입
     @PostMapping("/insert_exe")
-    public String doInsertExe(@ModelAttribute User user) {
+    public String doInsertExe(@ModelAttribute User user) throws Exception {
 
         userService.doInsert(user);
 
