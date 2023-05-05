@@ -20,6 +20,7 @@
     <button type="button" onclick="location.href='/board/insert'">등록하기</button>
     <div class="row mb-2">
       <div class="col">ID</div>
+      <div class="col">작성자</div>
       <div class="col">제목</div>
       <div class="col">내용</div>
       <div class="col">등록일자</div>
@@ -31,6 +32,7 @@
     <th:block th:each="board : ${list}">
       <div class="row mb-2">
         <div class="col" th:text="${board.getId()}">Key_Id(Vo)</div>
+        <div class="col" th:text="${board.getUser().getNickname()}">작성자</div>
         <div class="col" th:text="${board.getTitle()}">제목</div>
         <div class="col" th:text="${board.getContent()}">내용</div>
         <div class="col" th:text="${board.getDay()}">등록일자</div>

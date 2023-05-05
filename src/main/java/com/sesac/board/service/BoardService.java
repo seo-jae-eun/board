@@ -21,6 +21,7 @@ public class BoardService {
 
     /* 전체 Row Select */
     public List<Board> doSelectAll() {
+        //return boardRepository.findJpql();
         return boardRepository.findAll();
     }
 

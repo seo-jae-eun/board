@@ -29,4 +29,9 @@ public class Board {
     private LocalDateTime modifyDay;
     private String filename;
     private String filepath;
+
+    // 조인
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
