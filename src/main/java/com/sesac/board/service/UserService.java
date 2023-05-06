@@ -42,6 +42,15 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
+    /**
+     * 아이디로 조회
+     * @param strUserName
+     * @throws Exception
+     */
+    public User doSelectUserName(String strUserName) {
+        return userRepository.findByUsername(strUserName);
+    }
+
     /* Insert */
     public void doInsert(User user) throws Exception {
 

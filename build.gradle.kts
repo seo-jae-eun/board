@@ -19,7 +19,8 @@ repositories {
 }
 
 dependencies {
-	//implementation ("org.springframework.boot:spring-boot-starter-security") // Spring Security
+	implementation ("org.springframework.boot:spring-boot-starter-security") // Spring Security
+	testImplementation("org.springframework.security:spring-security-test")
 	
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
